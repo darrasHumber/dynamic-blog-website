@@ -1,56 +1,203 @@
+/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto Mono", monospace;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #333;
+  background-color: #343a40;
   color: #fff;
-  padding: 1rem;
+  padding: 1.5rem 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
   margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
-.button {
+/* Button Styles */
+.button,
+form button[type="submit"],
+#delete-post,
+#cancel-edit {
   display: inline-block;
   margin: 1rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: #007bff;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
 }
 
-.button:hover {
+.button:hover,
+form button[type="submit"]:hover,
+#delete-post:hover,
+#cancel-edit:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
+/* Delete Button Styles */
+#delete-post {
+  background-color: #dc3545;
+}
+
+#delete-post:hover {
+  background-color: #c82333;
+}
+
+/* Cancel Button Styles */
+#cancel-edit {
+  background-color: #6c757d;
+}
+
+#cancel-edit:hover {
+  background-color: #5a6268;
+}
+
+/* Form Button Styles */
+form button[type="submit"] {
+  width: auto; /* Adjust width to fit content */
+  margin-right: 0.5rem; /* Add spacing between buttons */
+}
+
+/* Main Content Styles */
 main {
-  padding: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Post List Styles */
 #post-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .post {
   background-color: #fff;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .post h3 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: #343a40;
 }
 
 .post p {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.post a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.post a:hover {
+  background-color: #218838;
+}
+
+/* Form Styles */
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+form input[type="text"],
+form textarea {
+  width: 95%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .button,
+  form button[type="submit"],
+  #delete-post,
+  #cancel-edit {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .post h3 {
+    font-size: 1.25rem;
+  }
+
+  .post p {
+    font-size: 0.9rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
 }
