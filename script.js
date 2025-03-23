@@ -44,6 +44,7 @@ function loadPost() {
   const editForm = document.getElementById("edit-form");
   const editPostButton = document.getElementById("edit-post");
   const cancelEditButton = document.getElementById("cancel-edit");
+  const deletePostButton = document.getElementById("delete-post");
 
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
@@ -68,6 +69,14 @@ function loadPost() {
     postEdit.style.display = "block";
     editPostButton.style.display = "none";
     deletePostButton.style.display = "none";
+  });
+
+  deletePostButton.addEventListener("click", () => {
+    if (confirm("Are you sure you want to delete this post?")) {
+      posts.splice(postId, 1);
+      localStorage.setItem("posts", JSON.stringify(posts));
+      window.location.href = "index.html";
+    }
   });
 
   cancelEditButton.addEventListener("click", () => {
