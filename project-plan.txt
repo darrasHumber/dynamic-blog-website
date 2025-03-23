@@ -1,0 +1,11 @@
+Project Plan for Dynamic Blog Website
+
+1. Pages:
+   - index.html: Homepage listing all blog posts.
+   - new-post.html: Form to create a new blog post.
+   - post.html: Page to view, edit, or delete a specific blog post.
+
+2. Features:
+   - CRUD operations (Create, Read, Update, Delete).
+   - Data stored in browser's local storage.
+   - Responsive design for all devices.
